@@ -92,19 +92,19 @@ export const InsightsPage: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#2A2A2D]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E9E1D4]">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono font-semibold">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#B08D57] font-mono font-semibold">
             Institutional Research & Editorial
           </span>
-          <h1 className="font-serif text-3xl font-light tracking-tight text-[#F7F5F0]">
+          <h1 className="font-display text-3xl font-light tracking-tight text-[#102A43]">
             Market Insights CMS
           </h1>
         </div>
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="inline-flex items-center gap-2 bg-[#C5A880] hover:bg-[#B8976C] text-[#18181A] px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-all"
+          className="inline-flex items-center gap-2 bg-[#102A43] hover:bg-[#1E3A5F] text-[#FFFDF8] px-4 py-2 text-xs uppercase tracking-wider font-semibold transition-all shadow-sm"
         >
           <Plus className="w-4 h-4" />
           <span>Publish New Intelligence</span>
@@ -113,28 +113,28 @@ export const InsightsPage: React.FC = () => {
 
       {/* Grid of Insights */}
       {isLoading ? (
-        <div className="p-12 text-center text-xs text-[#71717A]">Loading editorial manuscripts...</div>
+        <div className="p-12 text-center text-xs text-[#6B7280]">Loading editorial manuscripts...</div>
       ) : insights.length === 0 ? (
-        <div className="p-12 text-center text-xs text-[#71717A]">No market intelligence articles published yet.</div>
+        <div className="p-12 text-center text-xs text-[#6B7280]">No market intelligence articles published yet.</div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {insights.map((article) => (
             <div
               key={article._id}
-              className="bg-[#121214] border border-[#2A2A2D] flex flex-col justify-between overflow-hidden group hover:border-[#C5A880]/50 transition-all"
+              className="bg-[#FFFDF8] border border-[#E9E1D4] flex flex-col justify-between overflow-hidden group hover:border-[#B08D57] transition-all shadow-sm"
             >
-              <div className="relative h-44 overflow-hidden bg-[#18181A]">
+              <div className="relative h-44 overflow-hidden bg-[#F7F3EA]">
                 <img
                   src={article.coverImage || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'}
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-3 left-3 flex gap-2">
-                  <span className="px-2 py-0.5 bg-[#0B0B0C]/80 backdrop-blur-md border border-[#2A2A2D] text-[9px] uppercase tracking-wider text-[#C5A880] font-mono">
+                  <span className="px-2 py-0.5 bg-[#FFFDF8]/90 backdrop-blur-md border border-[#E9E1D4] text-[9px] uppercase tracking-wider text-[#102A43] font-mono shadow-sm">
                     {article.category?.replace('_', ' ') || 'REPORT'}
                   </span>
                   {article.isFeatured && (
-                    <span className="px-2 py-0.5 bg-[#C5A880] text-[#18181A] text-[9px] uppercase tracking-wider font-semibold font-mono">
+                    <span className="px-2 py-0.5 bg-[#102A43] text-[#FFFDF8] text-[9px] uppercase tracking-wider font-semibold font-mono shadow-sm">
                       Featured
                     </span>
                   )}
@@ -143,7 +143,7 @@ export const InsightsPage: React.FC = () => {
 
               <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-3 text-[10px] text-[#71717A] font-mono">
+                  <div className="flex items-center gap-3 text-[10px] text-[#6B7280] font-mono">
                     <span className="flex items-center gap-1">
                       <Clock className="w-3 h-3" /> {article.readTimeMinutes || 5} min read
                     </span>
@@ -152,21 +152,21 @@ export const InsightsPage: React.FC = () => {
                       <Calendar className="w-3 h-3" /> {new Date(article.createdAt).toLocaleDateString()}
                     </span>
                   </div>
-                  <h3 className="font-serif text-lg text-[#F7F5F0] leading-snug group-hover:text-[#C5A880] transition-colors">
+                  <h3 className="font-display text-lg text-[#102A43] leading-snug group-hover:text-[#B08D57] transition-colors">
                     {article.title}
                   </h3>
-                  <p className="text-xs text-[#A3A3A8] line-clamp-2 leading-relaxed">
+                  <p className="text-xs text-[#3E4852] line-clamp-2 leading-relaxed">
                     {article.excerpt}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#2A2A2D] flex items-center justify-between">
-                  <span className="text-[10px] text-[#71717A] font-mono">
+                <div className="pt-4 border-t border-[#E9E1D4] flex items-center justify-between">
+                  <span className="text-[10px] text-[#6B7280] font-mono">
                     Author: {article.author?.name || 'Alexander Sterling'}
                   </span>
                   <button
                     onClick={() => handleDelete(article._id, article.title)}
-                    className="p-1.5 text-[#71717A] hover:text-red-400 transition-colors"
+                    className="p-1.5 text-[#6B7280] hover:text-red-500 transition-colors"
                     title="Withdraw article"
                   >
                     <Trash2 className="w-4 h-4" />
@@ -180,20 +180,20 @@ export const InsightsPage: React.FC = () => {
 
       {/* New Intelligence Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
-          <div className="bg-[#121214] border border-[#2A2A2D] max-w-2xl w-full p-6 space-y-6 max-h-[90vh] overflow-y-auto animate-in fade-in">
-            <div className="flex items-center justify-between pb-4 border-b border-[#2A2A2D]">
+        <div className="fixed inset-0 z-50 bg-[#0B2135]/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#FFFDF8] border border-[#E9E1D4] max-w-2xl w-full p-6 space-y-6 max-h-[90vh] overflow-y-auto animate-in fade-in shadow-2xl">
+            <div className="flex items-center justify-between pb-4 border-b border-[#E9E1D4]">
               <div>
-                <span className="text-[10px] uppercase tracking-widest text-[#C5A880] font-mono">
+                <span className="text-[10px] uppercase tracking-widest text-[#B08D57] font-mono font-semibold">
                   Editorial Desk
                 </span>
-                <h3 className="font-serif text-xl text-[#F7F5F0] mt-0.5">
+                <h3 className="font-display text-xl text-[#102A43] mt-0.5">
                   Publish Market Intelligence Report
                 </h3>
               </div>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-[#A3A3A8] hover:text-[#F7F5F0]"
+                className="text-[#6B7280] hover:text-[#102A43]"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -201,7 +201,7 @@ export const InsightsPage: React.FC = () => {
 
             <form onSubmit={handleSubmit} className="space-y-4 text-xs">
               <div>
-                <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                   Report Title
                 </label>
                 <input
@@ -210,19 +210,19 @@ export const InsightsPage: React.FC = () => {
                   placeholder="e.g. Q3 2026 Dubai Prime Waterfront Capital Appreciation Indices"
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                  className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] placeholder-[#6B7280] focus:outline-none focus:border-[#B08D57]"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                     Category
                   </label>
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                    className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] focus:outline-none focus:border-[#B08D57]"
                   >
                     <option value="MARKET_TRENDS">Market Trends & Indices</option>
                     <option value="INVESTMENT">Ultra-HNW Investment</option>
@@ -232,7 +232,7 @@ export const InsightsPage: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                     Estimated Read Time (Minutes)
                   </label>
                   <input
@@ -240,13 +240,13 @@ export const InsightsPage: React.FC = () => {
                     min={1}
                     value={formData.readTimeMinutes}
                     onChange={(e) => setFormData({ ...formData, readTimeMinutes: Number(e.target.value) })}
-                    className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                    className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                   Cover Image URL
                 </label>
                 <input
@@ -254,24 +254,24 @@ export const InsightsPage: React.FC = () => {
                   required
                   value={formData.coverImage}
                   onChange={(e) => setFormData({ ...formData, coverImage: e.target.value })}
-                  className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                  className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] placeholder-[#6B7280] focus:outline-none focus:border-[#B08D57]"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                   Tags (Comma separated)
                 </label>
                 <input
                   type="text"
                   value={formData.tags}
                   onChange={(e) => setFormData({ ...formData, tags: e.target.value })}
-                  className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                  className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] placeholder-[#6B7280] focus:outline-none focus:border-[#B08D57]"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                   Executive Excerpt
                 </label>
                 <textarea
@@ -280,12 +280,12 @@ export const InsightsPage: React.FC = () => {
                   placeholder="Concise overview summarizing the key empirical thesis..."
                   value={formData.excerpt}
                   onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                  className="w-full bg-[#18181A] border border-[#2A2A2D] p-3 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                  className="w-full bg-[#F7F3EA] border border-[#E9E1D4] p-3 text-xs text-[#102A43] placeholder-[#6B7280] focus:outline-none focus:border-[#B08D57]"
                 />
               </div>
 
               <div>
-                <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1">
+                <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1 font-mono">
                   Full Article Body
                 </label>
                 <textarea
@@ -294,7 +294,7 @@ export const InsightsPage: React.FC = () => {
                   placeholder="Comprehensive editorial report, empirical analysis, and institutional takeaways..."
                   value={formData.content}
                   onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                  className="w-full bg-[#18181A] border border-[#2A2A2D] p-3 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                  className="w-full bg-[#F7F3EA] border border-[#E9E1D4] p-3 text-xs text-[#102A43] placeholder-[#6B7280] focus:outline-none focus:border-[#B08D57]"
                 />
               </div>
 
@@ -304,23 +304,23 @@ export const InsightsPage: React.FC = () => {
                     type="checkbox"
                     checked={formData.isFeatured}
                     onChange={(e) => setFormData({ ...formData, isFeatured: e.target.checked })}
-                    className="rounded border-[#2A2A2D] bg-[#18181A] text-[#C5A880] focus:ring-0"
+                    className="rounded border-[#E9E1D4] bg-[#F7F3EA] text-[#102A43] focus:ring-0"
                   />
-                  <span className="text-[11px] text-[#A3A3A8]">Feature prominently on homepage</span>
+                  <span className="text-[11px] text-[#3E4852]">Feature prominently on homepage</span>
                 </label>
 
                 <div className="flex gap-2">
                   <button
                     type="button"
                     onClick={() => setIsModalOpen(false)}
-                    className="px-4 py-2 border border-[#2A2A2D] text-xs uppercase tracking-wider text-[#A3A3A8] hover:text-[#F7F5F0]"
+                    className="px-4 py-2 border border-[#E9E1D4] text-xs uppercase tracking-wider text-[#6B7280] hover:text-[#102A43] bg-[#FFFDF8]"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="px-5 py-2 bg-[#C5A880] hover:bg-[#B8976C] text-[#18181A] text-xs uppercase tracking-wider font-semibold transition-all disabled:opacity-50"
+                    className="px-5 py-2 bg-[#102A43] hover:bg-[#1E3A5F] text-[#FFFDF8] text-xs uppercase tracking-wider font-semibold transition-all shadow-sm disabled:opacity-50"
                   >
                     {isSubmitting ? 'Publishing...' : 'Publish Article'}
                   </button>

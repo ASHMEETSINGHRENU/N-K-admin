@@ -23,7 +23,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0B0B0C] flex items-center justify-center text-xs text-[#C5A880] font-mono uppercase tracking-widest">
+      <div className="min-h-screen bg-[#F7F3EA] flex items-center justify-center text-xs text-[#102A43] font-mono uppercase tracking-widest">
         Authenticating Clearance...
       </div>
     );

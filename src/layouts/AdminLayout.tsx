@@ -46,21 +46,21 @@ export const AdminLayout: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0B0B0C] text-[#F7F5F0] flex font-sans">
-      {/* Sidebar */}
-      <aside className="w-64 bg-[#121214] border-r border-[#2A2A2D] flex flex-col justify-between shrink-0">
+    <div className="min-h-screen bg-[#F7F3EA] text-[#3E4852] flex font-ui">
+      {/* Sidebar - Deep Navy #102A43 */}
+      <aside className="w-64 bg-[#102A43] border-r border-[#1E3A5F] flex flex-col justify-between shrink-0 text-[#F7F3EA]">
         <div className="overflow-y-auto">
           {/* Brand Header */}
-          <div className="p-6 border-b border-[#2A2A2D]">
+          <div className="p-6 border-b border-[#1E3A5F]">
             <Link to="/admin/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full border border-[#C5A880] flex items-center justify-center text-[#C5A880]">
-                <span className="font-serif font-bold text-xs">NK</span>
+              <div className="w-8 h-8 rounded-full border border-[#B08D57] flex items-center justify-center text-[#D8C3A5] bg-[#0B2135]">
+                <span className="font-display font-bold text-xs">CS</span>
               </div>
               <div>
-                <span className="font-serif text-lg tracking-[0.16em] uppercase text-[#F7F5F0] block leading-none">
-                  NESTANDKEY
+                <span className="font-display text-lg tracking-[0.16em] uppercase text-[#F7F3EA] block leading-none">
+                  CRESTSHORE
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.25em] text-[#C5A880] font-medium block mt-0.5">
+                <span className="text-[9px] uppercase tracking-[0.25em] text-[#D8C3A5] font-medium block mt-0.5">
                   ADMIN CONTROL PANEL
                 </span>
               </div>
@@ -78,11 +78,11 @@ export const AdminLayout: React.FC = () => {
                   to={item.path}
                   className={`flex items-center gap-3 px-3.5 py-2 text-[11px] uppercase tracking-wider transition-all ${
                     isActive
-                      ? 'bg-[#18181A] text-[#C5A880] border-l-2 border-[#C5A880] font-semibold'
-                      : 'text-[#A3A3A8] hover:text-[#F7F5F0] hover:bg-[#18181A]/60'
+                      ? 'bg-[#1E3A5F] text-[#D8C3A5] border-l-2 border-[#B08D57] font-semibold'
+                      : 'text-[#E9E1D4]/80 hover:text-[#F7F3EA] hover:bg-[#1E3A5F]/50'
                   }`}
                 >
-                  <Icon className="w-4 h-4 text-[#C5A880]" />
+                  <Icon className="w-4 h-4 text-[#B08D57]" />
                   <span>{item.label}</span>
                 </Link>
               );
@@ -91,13 +91,13 @@ export const AdminLayout: React.FC = () => {
         </div>
 
         {/* Footer Area */}
-        <div className="p-4 border-t border-[#2A2A2D] space-y-3 bg-[#0B0B0C]">
+        <div className="p-4 border-t border-[#1E3A5F] space-y-3 bg-[#0B2135]">
           <div className="flex gap-2">
             <a
               href="http://localhost:5173"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center text-[10px] uppercase tracking-wider py-1.5 border border-[#2A2A2D] text-[#A3A3A8] hover:text-[#C5A880] hover:border-[#C5A880] transition-colors"
+              className="flex-1 text-center text-[10px] uppercase tracking-wider py-1.5 border border-[#1E3A5F] text-[#E9E1D4]/80 hover:text-[#D8C3A5] hover:border-[#B08D57] transition-colors"
             >
               Public Portal
             </a>
@@ -105,22 +105,22 @@ export const AdminLayout: React.FC = () => {
               href="http://localhost:5174"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 text-center text-[10px] uppercase tracking-wider py-1.5 border border-[#2A2A2D] text-[#A3A3A8] hover:text-[#C5A880] hover:border-[#C5A880] transition-colors"
+              className="flex-1 text-center text-[10px] uppercase tracking-wider py-1.5 border border-[#1E3A5F] text-[#E9E1D4]/80 hover:text-[#D8C3A5] hover:border-[#B08D57] transition-colors"
             >
               Broker Portal
             </a>
           </div>
 
-          <div className="pt-2 border-t border-[#2A2A2D] flex items-center justify-between">
+          <div className="pt-2 border-t border-[#1E3A5F] flex items-center justify-between">
             <div className="flex items-center gap-2 overflow-hidden">
-              <div className="w-8 h-8 rounded-full bg-[#18181A] border border-[#C5A880] flex items-center justify-center text-[#C5A880] text-xs font-serif shrink-0">
+              <div className="w-8 h-8 rounded-full bg-[#102A43] border border-[#B08D57] flex items-center justify-center text-[#D8C3A5] text-xs font-display shrink-0">
                 AD
               </div>
               <div className="truncate">
-                <span className="text-xs font-medium text-[#F7F5F0] block truncate">
+                <span className="text-xs font-medium text-[#F7F3EA] block truncate">
                   {user?.name || 'Administrator'}
                 </span>
-                <span className="text-[9px] text-[#C5A880] block font-mono">
+                <span className="text-[9px] text-[#D8C3A5] block font-mono">
                   Master Clearance
                 </span>
               </div>
@@ -128,7 +128,7 @@ export const AdminLayout: React.FC = () => {
 
             <button
               onClick={handleLogout}
-              className="p-1.5 text-[#A3A3A8] hover:text-red-400 transition-colors"
+              className="p-1.5 text-[#E9E1D4]/70 hover:text-red-400 transition-colors"
               title="Sign Out"
             >
               <LogOut className="w-4 h-4" />
@@ -137,8 +137,8 @@ export const AdminLayout: React.FC = () => {
         </div>
       </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 overflow-y-auto bg-[#0B0B0C] p-8 lg:p-12">
+      {/* Main Content - Warm Ivory #F7F3EA */}
+      <main className="flex-1 overflow-y-auto bg-[#F7F3EA] text-[#3E4852] p-8 lg:p-12">
         <Outlet />
       </main>
     </div>

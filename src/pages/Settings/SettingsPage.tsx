@@ -23,7 +23,7 @@ export const SettingsPage: React.FC = () => {
     autoAssignLeadByLocation: true,
     twoFactorAdminEnforcement: true,
     sessionTimeoutMinutes: 120,
-    notificationWebhookUrl: 'https://api.nestandkey.com/webhooks/ops'
+    notificationWebhookUrl: 'https://api.crestshore.com/webhooks/ops'
   });
 
   const [isSaved, setIsSaved] = useState(false);
@@ -37,19 +37,19 @@ export const SettingsPage: React.FC = () => {
   return (
     <div className="space-y-8 max-w-4xl">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#2A2A2D]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E9E1D4]">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono font-semibold">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#B08D57] font-mono font-semibold">
             System Infrastructure & Policy
           </span>
-          <h1 className="font-serif text-3xl font-light tracking-tight text-[#F7F5F0]">
+          <h1 className="font-display text-3xl font-light tracking-tight text-[#102A43]">
             Platform Governance Settings
           </h1>
         </div>
 
         <button
           onClick={handleSubmit}
-          className="inline-flex items-center gap-2 bg-[#C5A880] hover:bg-[#B8976C] text-[#18181A] px-5 py-2.5 text-xs uppercase tracking-wider font-semibold transition-all"
+          className="inline-flex items-center gap-2 bg-[#102A43] hover:bg-[#1E3A5F] text-[#FFFDF8] px-5 py-2.5 text-xs uppercase tracking-wider font-semibold transition-all shadow-sm"
         >
           <Save className="w-4 h-4" />
           <span>Save System Policies</span>
@@ -57,23 +57,23 @@ export const SettingsPage: React.FC = () => {
       </div>
 
       {isSaved && (
-        <div className="p-4 bg-emerald-950/40 border border-emerald-800 text-emerald-300 text-xs flex items-center gap-2 animate-in fade-in">
-          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+        <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2 animate-in fade-in">
+          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           <span>Platform policies updated and synchronized across all operational modules.</span>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Financial & Split Parameters */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-4">
-          <div className="flex items-center gap-2 border-b border-[#2A2A2D] pb-3">
-            <DollarSign className="w-4 h-4 text-[#C5A880]" />
-            <h2 className="font-serif text-lg text-[#F7F5F0]">Financial & Commission Model</h2>
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-4 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-[#E9E1D4] pb-3">
+            <DollarSign className="w-4 h-4 text-[#102A43]" />
+            <h2 className="font-display text-lg text-[#102A43]">Financial & Commission Model</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Default Agency Fee (%)
               </label>
               <input
@@ -83,12 +83,12 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, defaultAgencyCommissionPct: parseFloat(e.target.value) })
                 }
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Broker Split Allocation (%)
               </label>
               <input
@@ -97,12 +97,12 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, brokerBaseSplitPct: parseInt(e.target.value) })
                 }
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Treasury Retained Split (%)
               </label>
               <input
@@ -111,17 +111,17 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, companyBaseSplitPct: parseInt(e.target.value) })
                 }
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
           </div>
         </div>
 
         {/* Client Privacy Protection Invariant */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-4">
-          <div className="flex items-center gap-2 border-b border-[#2A2A2D] pb-3">
-            <Lock className="w-4 h-4 text-[#C5A880]" />
-            <h2 className="font-serif text-lg text-[#F7F5F0]">Strict Client Privacy Governance</h2>
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-4 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-[#E9E1D4] pb-3">
+            <Lock className="w-4 h-4 text-[#102A43]" />
+            <h2 className="font-display text-lg text-[#102A43]">Strict Client Privacy Governance</h2>
           </div>
 
           <div className="space-y-3 text-xs">
@@ -132,13 +132,13 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, maskClientPhoneOnPublic: e.target.checked })
                 }
-                className="mt-0.5 rounded border-[#2A2A2D] bg-[#18181A] text-[#C5A880] focus:ring-0"
+                className="mt-0.5 rounded border-[#E9E1D4] bg-[#F7F3EA] text-[#102A43] focus:ring-0"
               />
               <div>
-                <span className="text-[#F7F5F0] font-medium block">
+                <span className="text-[#102A43] font-medium block">
                   Enforce Public Endpoint Privacy Filter
                 </span>
-                <span className="text-[#71717A] text-[11px] block">
+                <span className="text-[#6B7280] text-[11px] block">
                   Never serialize client mobile numbers or sensitive identities across public APIs or DOM metadata.
                 </span>
               </div>
@@ -151,13 +151,13 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, enforceReraRegistration: e.target.checked })
                 }
-                className="mt-0.5 rounded border-[#2A2A2D] bg-[#18181A] text-[#C5A880] focus:ring-0"
+                className="mt-0.5 rounded border-[#E9E1D4] bg-[#F7F3EA] text-[#102A43] focus:ring-0"
               />
               <div>
-                <span className="text-[#F7F5F0] font-medium block">
+                <span className="text-[#102A43] font-medium block">
                   Mandatory Dubai RERA BRN Validation
                 </span>
-                <span className="text-[#71717A] text-[11px] block">
+                <span className="text-[#6B7280] text-[11px] block">
                   Requires valid Real Estate Regulatory Agency license verification before activating any broker profile.
                 </span>
               </div>
@@ -170,13 +170,13 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, autoAssignLeadByLocation: e.target.checked })
                 }
-                className="mt-0.5 rounded border-[#2A2A2D] bg-[#18181A] text-[#C5A880] focus:ring-0"
+                className="mt-0.5 rounded border-[#E9E1D4] bg-[#F7F3EA] text-[#102A43] focus:ring-0"
               />
               <div>
-                <span className="text-[#F7F5F0] font-medium block">
+                <span className="text-[#102A43] font-medium block">
                   Automated Geographic Lead Routing
                 </span>
-                <span className="text-[#71717A] text-[11px] block">
+                <span className="text-[#6B7280] text-[11px] block">
                   Route incoming high-net-worth inquiries to localized specialists based on community specialization.
                 </span>
               </div>
@@ -185,15 +185,15 @@ export const SettingsPage: React.FC = () => {
         </div>
 
         {/* Security & Access */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-4">
-          <div className="flex items-center gap-2 border-b border-[#2A2A2D] pb-3">
-            <ShieldCheck className="w-4 h-4 text-[#C5A880]" />
-            <h2 className="font-serif text-lg text-[#F7F5F0]">Session & Security Parameters</h2>
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-4 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-[#E9E1D4] pb-3">
+            <ShieldCheck className="w-4 h-4 text-[#102A43]" />
+            <h2 className="font-display text-lg text-[#102A43]">Session & Security Parameters</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Session Inactivity Timeout (Minutes)
               </label>
               <input
@@ -202,12 +202,12 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, sessionTimeoutMinutes: parseInt(e.target.value) })
                 }
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Operational Webhook Relay
               </label>
               <input
@@ -216,7 +216,7 @@ export const SettingsPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, notificationWebhookUrl: e.target.value })
                 }
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
           </div>

@@ -24,7 +24,7 @@ export const CMSPage: React.FC = () => {
     reraLicense: 'RERA ORN: 94821',
     tradeLicense: 'DIFC CL-40192',
     conciergePhone: '+971 4 456 7890',
-    conciergeEmail: 'concierge@nestandkey.com',
+    conciergeEmail: 'concierge@crestshore.com',
     whatsappHotline: '+971 50 112 3456',
     statPortfolioAED: '18.4B+',
     statTransactions: '4,200+',
@@ -75,18 +75,18 @@ export const CMSPage: React.FC = () => {
   };
 
   if (isLoading) {
-    return <div className="p-12 text-xs text-[#71717A]">Loading website content configuration...</div>;
+    return <div className="p-12 text-xs text-[#6B7280]">Loading website content configuration...</div>;
   }
 
   return (
     <div className="space-y-8 max-w-5xl">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#2A2A2D]">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#E9E1D4]">
         <div>
-          <span className="text-[10px] uppercase tracking-[0.25em] text-[#C5A880] font-mono font-semibold">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-[#B08D57] font-mono font-semibold">
             Public Surface Content Management
           </span>
-          <h1 className="font-serif text-3xl font-light tracking-tight text-[#F7F5F0]">
+          <h1 className="font-display text-3xl font-light tracking-tight text-[#102A43]">
             Website CMS Editor
           </h1>
         </div>
@@ -94,7 +94,7 @@ export const CMSPage: React.FC = () => {
         <button
           onClick={handleSave}
           disabled={isSaving}
-          className="inline-flex items-center gap-2 bg-[#C5A880] hover:bg-[#B8976C] text-[#18181A] px-5 py-2.5 text-xs uppercase tracking-wider font-semibold transition-all disabled:opacity-50"
+          className="inline-flex items-center gap-2 bg-[#102A43] hover:bg-[#1E3A5F] text-[#FFFDF8] px-5 py-2.5 text-xs uppercase tracking-wider font-semibold transition-all shadow-sm disabled:opacity-50"
         >
           <Save className="w-4 h-4" />
           <span>{isSaving ? 'Publishing Changes...' : 'Save & Publish Live'}</span>
@@ -102,220 +102,220 @@ export const CMSPage: React.FC = () => {
       </div>
 
       {savedSuccess && (
-        <div className="p-4 bg-emerald-950/40 border border-emerald-800 text-emerald-300 text-xs flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+        <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
           <span>Public portal content updated and published live across all edge caches.</span>
         </div>
       )}
 
       {errorMsg && (
-        <div className="p-4 bg-red-950/40 border border-red-800 text-red-300 text-xs flex items-center gap-2">
-          <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+        <div className="p-4 bg-red-50 border border-red-200 text-red-800 text-xs flex items-center gap-2">
+          <AlertCircle className="w-4 h-4 shrink-0 text-red-600" />
           <span>{errorMsg}</span>
         </div>
       )}
 
       <form onSubmit={handleSave} className="space-y-8">
         {/* Section 1: Hero Section */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-5">
-          <div className="flex items-center gap-2 border-b border-[#2A2A2D] pb-3">
-            <LayoutTemplate className="w-4 h-4 text-[#C5A880]" />
-            <h2 className="font-serif text-lg text-[#F7F5F0]">Hero Section & Master Messaging</h2>
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-5 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-[#E9E1D4] pb-3">
+            <LayoutTemplate className="w-4 h-4 text-[#102A43]" />
+            <h2 className="font-display text-lg text-[#102A43]">Hero Section & Master Messaging</h2>
           </div>
 
           <div className="space-y-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Eyebrow Tagline
               </label>
               <input
                 type="text"
                 value={content.heroTagline || ''}
                 onChange={(e) => handleChange('heroTagline', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Main Headline
               </label>
               <input
                 type="text"
                 value={content.heroHeadline || ''}
                 onChange={(e) => handleChange('heroHeadline', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Editorial Subtitle
               </label>
               <textarea
                 rows={3}
                 value={content.heroSubtitle || ''}
                 onChange={(e) => handleChange('heroSubtitle', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] p-3 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] p-3 text-xs text-[#102A43] focus:outline-none focus:border-[#B08D57]"
               />
             </div>
           </div>
         </div>
 
         {/* Section 2: Global Announcement Bar */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-5">
-          <div className="flex items-center justify-between border-b border-[#2A2A2D] pb-3">
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-5 shadow-sm">
+          <div className="flex items-center justify-between border-b border-[#E9E1D4] pb-3">
             <div className="flex items-center gap-2">
-              <Bell className="w-4 h-4 text-[#C5A880]" />
-              <h2 className="font-serif text-lg text-[#F7F5F0]">Announcement Banner</h2>
+              <Bell className="w-4 h-4 text-[#102A43]" />
+              <h2 className="font-display text-lg text-[#102A43]">Announcement Banner</h2>
             </div>
             <label className="flex items-center gap-2 cursor-pointer">
               <input
                 type="checkbox"
                 checked={!!content.announcementEnabled}
                 onChange={(e) => handleChange('announcementEnabled', e.target.checked)}
-                className="rounded border-[#2A2A2D] bg-[#18181A] text-[#C5A880] focus:ring-0"
+                className="rounded border-[#E9E1D4] bg-[#F7F3EA] text-[#102A43] focus:ring-0"
               />
-              <span className="text-[11px] text-[#A3A3A8]">Enable Banner</span>
+              <span className="text-[11px] text-[#3E4852]">Enable Banner</span>
             </label>
           </div>
 
           <div>
-            <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+            <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
               Banner Text Content
             </label>
             <input
               type="text"
               value={content.announcementText || ''}
               onChange={(e) => handleChange('announcementText', e.target.value)}
-              className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+              className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] focus:outline-none focus:border-[#B08D57]"
             />
           </div>
         </div>
 
         {/* Section 3: Legal, RERA & Contact Information */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-5">
-          <div className="flex items-center gap-2 border-b border-[#2A2A2D] pb-3">
-            <Shield className="w-4 h-4 text-[#C5A880]" />
-            <h2 className="font-serif text-lg text-[#F7F5F0]">Corporate, RERA & DIFC Headquarters</h2>
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-5 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-[#E9E1D4] pb-3">
+            <Shield className="w-4 h-4 text-[#102A43]" />
+            <h2 className="font-display text-lg text-[#102A43]">Corporate, RERA & DIFC Headquarters</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Headquarters Address
               </label>
               <input
                 type="text"
                 value={content.headquartersAddress || ''}
                 onChange={(e) => handleChange('headquartersAddress', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 RERA License (ORN)
               </label>
               <input
                 type="text"
                 value={content.reraLicense || ''}
                 onChange={(e) => handleChange('reraLicense', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Trade License / Registration
               </label>
               <input
                 type="text"
                 value={content.tradeLicense || ''}
                 onChange={(e) => handleChange('tradeLicense', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Concierge Phone
               </label>
               <input
                 type="text"
                 value={content.conciergePhone || ''}
                 onChange={(e) => handleChange('conciergePhone', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Concierge Email
               </label>
               <input
                 type="email"
                 value={content.conciergeEmail || ''}
                 onChange={(e) => handleChange('conciergeEmail', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Private WhatsApp Hotline
               </label>
               <input
                 type="text"
                 value={content.whatsappHotline || ''}
                 onChange={(e) => handleChange('whatsappHotline', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
           </div>
         </div>
 
         {/* Section 4: Public Key Statistics */}
-        <div className="bg-[#121214] p-6 border border-[#2A2A2D] space-y-5">
-          <div className="flex items-center gap-2 border-b border-[#2A2A2D] pb-3">
-            <Building className="w-4 h-4 text-[#C5A880]" />
-            <h2 className="font-serif text-lg text-[#F7F5F0]">Luxury Brand Key Metrics</h2>
+        <div className="bg-[#FFFDF8] p-6 border border-[#E9E1D4] space-y-5 shadow-sm">
+          <div className="flex items-center gap-2 border-b border-[#E9E1D4] pb-3">
+            <Building className="w-4 h-4 text-[#102A43]" />
+            <h2 className="font-display text-lg text-[#102A43]">Luxury Brand Key Metrics</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Active Portfolio Value
               </label>
               <input
                 type="text"
                 value={content.statPortfolioAED || ''}
                 onChange={(e) => handleChange('statPortfolioAED', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Total Transactions Settled
               </label>
               <input
                 type="text"
                 value={content.statTransactions || ''}
                 onChange={(e) => handleChange('statTransactions', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] uppercase tracking-wider text-[#A3A3A8] mb-1.5">
+              <label className="block text-[10px] uppercase tracking-wider text-[#6B7280] mb-1.5 font-mono">
                 Client Satisfaction Rate
               </label>
               <input
                 type="text"
                 value={content.statClientSatisfaction || ''}
                 onChange={(e) => handleChange('statClientSatisfaction', e.target.value)}
-                className="w-full bg-[#18181A] border border-[#2A2A2D] px-3 py-2 text-xs text-[#F7F5F0] font-mono focus:outline-none focus:border-[#C5A880]"
+                className="w-full bg-[#F7F3EA] border border-[#E9E1D4] px-3 py-2 text-xs text-[#102A43] font-mono focus:outline-none focus:border-[#B08D57]"
               />
             </div>
           </div>
@@ -325,7 +325,7 @@ export const CMSPage: React.FC = () => {
           <button
             type="submit"
             disabled={isSaving}
-            className="inline-flex items-center gap-2 bg-[#C5A880] hover:bg-[#B8976C] text-[#18181A] px-6 py-3 text-xs uppercase tracking-wider font-semibold transition-all disabled:opacity-50"
+            className="inline-flex items-center gap-2 bg-[#102A43] hover:bg-[#1E3A5F] text-[#FFFDF8] px-6 py-3 text-xs uppercase tracking-wider font-semibold transition-all shadow-sm disabled:opacity-50"
           >
             <Save className="w-4 h-4" />
             <span>{isSaving ? 'Publishing Changes...' : 'Save & Publish Live'}</span>
